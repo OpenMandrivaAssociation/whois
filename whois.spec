@@ -1,6 +1,6 @@
 %define name whois
-%define version 4.7.20
-%define release %mkrel 2
+%define version 4.7.21
+%define release %mkrel 1
 %define url http://www.linux.it/~md/software/
 
 Summary: Enhanced WHOIS client
