@@ -1,6 +1,6 @@
 %define name whois
 %define version 4.7.21
-%define release %mkrel 1
+%define release %mkrel 2
 %define url http://www.linux.it/~md/software/
 
 Summary: Enhanced WHOIS client
@@ -27,8 +27,6 @@ server for most queries.
 
 %prep
 %setup -q
-# disable IDN support
-perl -pi -e 's,^(#define _GNU_SOURCE)$,/* $1 */,' whois.c
 
 %build
 %make OPTS="%optflags" whois
