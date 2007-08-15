@@ -1,13 +1,13 @@
 %define name whois
-%define version 4.7.21
-%define release %mkrel 2
+%define version 4.7.22
+%define release %mkrel 1
 %define url http://www.linux.it/~md/software/
 
 Summary: Enhanced WHOIS client
 Name: %{name}
 Version: %{version}
 Release: %{release}
-Source0: ftp://ftp.debian.org/debian/pool/main/w/whois/%{name}_%{version}.tar.bz2
+Source: ftp://ftp.debian.org/debian/pool/main/w/whois/%{name}_%{version}.tar.gz
 URL: %{url}
 License: GPL
 Group: Networking/Other
