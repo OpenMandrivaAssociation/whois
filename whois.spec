@@ -12,6 +12,7 @@ URL: %{url}
 License: GPL
 Group: Networking/Other
 BuildRequires:	gettext
+BuildRoot: %{_tmppath}/%{name}-buildroot
 Obsoletes: fwhois
 Provides: fwhois
 
