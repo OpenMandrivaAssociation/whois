@@ -1,20 +1,16 @@
-%define name whois
-%define version 4.7.22
-%define release %mkrel 1
-%define url http://www.linux.it/~md/software/
-
-Summary: Enhanced WHOIS client
-Name: %{name}
-Version: %{version}
-Release: %{release}
-Source: ftp://ftp.debian.org/debian/pool/main/w/whois/%{name}_%{version}.tar.gz
-URL: %{url}
-License: GPL
-Group: Networking/Other
+Summary:	Enhanced WHOIS client
+Name:		whois
+Version:	4.7.24
+Release:	%mkrel 1
+Source0:	ftp://ftp.debian.org/debian/pool/main/w/whois/%{name}_%{version}.tar.gz
+URL:		http://www.linux.it/~md/software/
+License:	GPLv2+
+Group:		Networking/Other
 BuildRequires:	gettext
-BuildRoot: %{_tmppath}/%{name}-buildroot
-Obsoletes: fwhois
-Provides: fwhois
+BuildRequires:	libidn-devel
+BuildRoot:	%{_tmppath}/%{name}-buildroot
+Obsoletes:	fwhois
+Provides:	fwhois
 
 %description
 This is a new whois (RFC 954) client rewritten from scratch.
@@ -29,23 +25,25 @@ server for most queries.
 %setup -q
 
 %build
-%make OPTS="%optflags" whois
+%make OPTS="%{optflags}" HAVE_LIBIDN=1 whois
 
 %install
-rm -rf %buildroot
-mkdir -p %buildroot/%{_bindir}
-mkdir -p %buildroot/%{_mandir}/man1
-make install BASEDIR=%buildroot prefix=%{_prefix}/ mandir=%{_mandir}
+rm -rf %{buildroot}
+mkdir -p %{buildroot}%{_bindir}
+mkdir -p %{buildroot}%{_sysconfdir}
+mkdir -p %{buildroot}%{_mandir}/man1
+%makeinstall BASEDIR=%{buildroot} prefix=%{_prefix}/ mandir=%{_mandir}
+
+install whois.conf %{buildroot}%{_sysconfdir}
 
 %find_lang %{name}
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %files -f %{name}.lang
 %defattr(-,root,root)
-%doc [A-Z][A-Z]*
+%doc README
+%config(noreplace) %{_sysconfdir}/whois.conf
 %{_bindir}/*
 %{_mandir}/*/*
-
-
