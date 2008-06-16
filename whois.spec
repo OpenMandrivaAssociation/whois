@@ -1,11 +1,11 @@
 Summary:	Enhanced WHOIS client
 Name:		whois
-Version:	4.7.24
+Version:	4.7.26
 Release:	%mkrel 1
-Source0:	ftp://ftp.debian.org/debian/pool/main/w/whois/%{name}_%{version}.tar.gz
-URL:		http://www.linux.it/~md/software/
 License:	GPLv2+
 Group:		Networking/Other
+URL:		http://www.linux.it/~md/software/
+Source0:	ftp://ftp.debian.org/debian/pool/main/w/whois/%{name}_%{version}.tar.gz
 BuildRequires:	gettext
 BuildRequires:	libidn-devel
 BuildRoot:	%{_tmppath}/%{name}-buildroot
