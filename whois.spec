@@ -1,6 +1,6 @@
 Summary:	Enhanced WHOIS client
 Name:		whois
-Version:	4.7.26
+Version:	4.7.30
 Release:	%mkrel 1
 License:	GPLv2+
 Group:		Networking/Other
@@ -25,7 +25,9 @@ server for most queries.
 %setup -q
 
 %build
-%make OPTS="%{optflags}" HAVE_LIBIDN=1 whois
+export LDFLAGS="`rpm --eval %%configure|grep LDFLAGS|cut -d\\" -f2|sed -e 's/\$LDFLAGS\ //'`"
+    
+%make OPTS="%{optflags}" HAVE_LIBIDN=1 LDFLAGS="$LDFLAGS" whois
 
 %install
 rm -rf %{buildroot}
