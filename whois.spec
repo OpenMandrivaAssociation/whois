@@ -1,16 +1,16 @@
 Summary:	Enhanced WHOIS client
 Name:		whois
 Version:	4.7.30
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	GPLv2+
 Group:		Networking/Other
 URL:		http://www.linux.it/~md/software/
 Source0:	ftp://ftp.debian.org/debian/pool/main/w/whois/%{name}_%{version}.tar.gz
 BuildRequires:	gettext
 BuildRequires:	libidn-devel
-BuildRoot:	%{_tmppath}/%{name}-buildroot
-Obsoletes:	fwhois
 Provides:	fwhois
+Obsoletes:	fwhois
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 This is a new whois (RFC 954) client rewritten from scratch.
@@ -25,20 +25,25 @@ server for most queries.
 %setup -q
 
 %build
-export LDFLAGS="`rpm --eval %%configure|grep LDFLAGS|cut -d\\" -f2|sed -e 's/\$LDFLAGS\ //'`"
-    
-%make OPTS="%{optflags}" HAVE_LIBIDN=1 LDFLAGS="$LDFLAGS" whois
+%make OPTS="%{optflags}" HAVE_LIBIDN=1 LDFLAGS="%ldflags" whois pos
 
 %install
 rm -rf %{buildroot}
-mkdir -p %{buildroot}%{_bindir}
-mkdir -p %{buildroot}%{_sysconfdir}
-mkdir -p %{buildroot}%{_mandir}/man1
-%makeinstall BASEDIR=%{buildroot} prefix=%{_prefix}/ mandir=%{_mandir}
 
-install whois.conf %{buildroot}%{_sysconfdir}
+install -d %{buildroot}%{_bindir}
+install -d %{buildroot}%{_sysconfdir}
+install -d %{buildroot}%{_mandir}/man1
+
+%makeinstall BASEDIR=%{buildroot} prefix=%{_prefix}/ mandir=%{_mandir}
+%makeinstall BASEDIR=%{buildroot} prefix=%{_prefix}/ mandir=%{_mandir} -C po
+
+install -m0644 whois.conf %{buildroot}%{_sysconfdir}
 
 %find_lang %{name}
+
+# fix a file conflict with expect (#46500)
+mv %{buildroot}%{_bindir}/mkpasswd %{buildroot}%{_bindir}/whois-mkpasswd
+mv %{buildroot}%{_mandir}/man1/mkpasswd.1 %{buildroot}%{_mandir}/man1/whois-mkpasswd.1
 
 %clean
 rm -rf %{buildroot}
@@ -47,5 +52,7 @@ rm -rf %{buildroot}
 %defattr(-,root,root)
 %doc README
 %config(noreplace) %{_sysconfdir}/whois.conf
-%{_bindir}/*
-%{_mandir}/*/*
+%{_bindir}/whois
+%{_bindir}/whois-mkpasswd
+%{_mandir}/man1/whois.1*
+%{_mandir}/man1/whois-mkpasswd.1*
