@@ -1,7 +1,7 @@
 Summary:	Enhanced WHOIS client
 Name:		whois
-Version:	5.0.11
-Release:	%mkrel 2
+Version:	5.0.12
+Release:	%mkrel 1
 License:	GPLv2+
 Group:		Networking/Other
 URL:		http://www.linux.it/~md/software/
