@@ -1,6 +1,6 @@
 Summary:	Enhanced WHOIS client
 Name:		whois
-Version:	5.0.12
+Version:	5.0.13
 Release:	%mkrel 1
 License:	GPLv2+
 Group:		Networking/Other
@@ -39,7 +39,7 @@ install -d %{buildroot}%{_mandir}/man1
 
 install -m0644 whois.conf %{buildroot}%{_sysconfdir}
 
-%find_lang %{name}
+%find_lang %{name} %{name}.lang
 
 # fix a file conflict with expect (#46500)
 mv %{buildroot}%{_bindir}/mkpasswd %{buildroot}%{_bindir}/whois-mkpasswd
