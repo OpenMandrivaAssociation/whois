@@ -1,16 +1,14 @@
 Summary:	Enhanced WHOIS client
 Name:		whois
-Version:	5.0.13
-Release:	%mkrel 1
+Version:	5.0.16
+Release:	1
 License:	GPLv2+
 Group:		Networking/Other
 URL:		http://www.linux.it/~md/software/
-Source0:	ftp://ftp.debian.org/debian/pool/main/w/whois/%{name}_%{version}.tar.gz
+Source0:	ftp://ftp.debian.org/debian/pool/main/w/whois/%{name}_%{version}.tar.xz
 BuildRequires:	gettext
 BuildRequires:	libidn-devel
-Provides:	fwhois
-Obsoletes:	fwhois
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
+%rename	fwhois
 
 %description
 This is a new whois (RFC 954) client rewritten from scratch.
@@ -25,11 +23,9 @@ server for most queries.
 %setup -q
 
 %build
-%make OPTS="%{optflags}" HAVE_LIBIDN=1 LDFLAGS="%ldflags" whois pos
+%make OPTS="%{optflags}" HAVE_LIBIDN=1 LDFLAGS="%{ldflags}" whois pos
 
 %install
-rm -rf %{buildroot}
-
 install -d %{buildroot}%{_bindir}
 install -d %{buildroot}%{_sysconfdir}
 install -d %{buildroot}%{_mandir}/man1
@@ -45,11 +41,7 @@ install -m0644 whois.conf %{buildroot}%{_sysconfdir}
 mv %{buildroot}%{_bindir}/mkpasswd %{buildroot}%{_bindir}/whois-mkpasswd
 mv %{buildroot}%{_mandir}/man1/mkpasswd.1 %{buildroot}%{_mandir}/man1/whois-mkpasswd.1
 
-%clean
-rm -rf %{buildroot}
-
 %files -f %{name}.lang
-%defattr(-,root,root)
 %doc README
 %config(noreplace) %{_sysconfdir}/whois.conf
 %{_bindir}/whois
