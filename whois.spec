@@ -23,7 +23,9 @@ server for most queries.
 %setup -q
 
 %build
-%make OPTS="%{optflags}" HAVE_LIBIDN=1 LDFLAGS="%{ldflags}" whois pos
+%setup_compile_flags
+
+%make OPTS="%{optflags}" HAVE_LIBIDN=1 HAVE_ICONV=1 LDFLAGS="%{ldflags}" CONFIG_FILE="%{_sysconfdir}/whois.conf"
 
 %install
 install -d %{buildroot}%{_bindir}
