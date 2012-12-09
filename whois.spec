@@ -1,7 +1,7 @@
 Summary:	Enhanced WHOIS client
 Name:		whois
-Version:	5.0.20
-Release:	1
+Version:	5.0.19
+Release:	2
 License:	GPLv2+
 Group:		Networking/Other
 URL:		http://www.linux.it/~md/software/
