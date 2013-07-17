@@ -50,4 +50,5 @@ mv %{buildroot}%{_mandir}/man1/mkpasswd.1 %{buildroot}%{_mandir}/man1/whois-mkpa
 %{_bindir}/whois-mkpasswd
 %{_mandir}/man1/whois.1*
 %{_mandir}/man1/whois-mkpasswd.1*
+%{_mandir}/man5/whois.conf.5*
 
