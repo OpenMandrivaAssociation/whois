@@ -1,11 +1,11 @@
 Summary:	Enhanced WHOIS client
 Name:		whois
-Version:	5.1.2
-Release:	3
+Version:	5.1.5
+Release:	1
 License:	GPLv2+
 Group:		Networking/Other
 URL:		http://www.linux.it/~md/software/
-Source0:	ftp://ftp.debian.org/debian/pool/main/w/whois/whois_5.1.1.tar.xz
+Source0:	ftp://ftp.debian.org/debian/pool/main/w/whois/whois_%{version}.tar.xz
 BuildRequires:	gettext
 BuildRequires:	libidn-devel
 %rename	fwhois
