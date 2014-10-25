@@ -1,6 +1,6 @@
 Summary:	Enhanced WHOIS client
 Name:		whois
-Version:	5.1.5
+Version:	5.2.1
 Release:	1
 License:	GPLv2+
 Group:		Networking/Other
@@ -51,4 +51,3 @@ mv %{buildroot}%{_mandir}/man1/mkpasswd.1 %{buildroot}%{_mandir}/man1/whois-mkpa
 %{_mandir}/man1/whois.1*
 %{_mandir}/man1/whois-mkpasswd.1*
 %{_mandir}/man5/whois.conf.5*
-
