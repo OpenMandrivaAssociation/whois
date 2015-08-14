@@ -5,7 +5,7 @@ Release:	0.1
 License:	GPLv2+
 Group:		Networking/Other
 URL:		https://github.com/rfc1036/whois
-Source0:	https://github.com/rfc1036/whois/archive/%{name}_%{version}.tar.gz
+Source0:	https://github.com/rfc1036/whois/archive/%{name}_%{version}.tar.xz
 BuildRequires:	gettext
 BuildRequires:	libidn-devel
 %rename	fwhois
