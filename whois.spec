@@ -1,11 +1,11 @@
 Summary:	Enhanced WHOIS client
 Name:		whois
-Version:	5.0.25
-Release:	2
+Version:	5.2.10
+Release:	0.1
 License:	GPLv2+
 Group:		Networking/Other
-URL:		http://www.linux.it/~md/software/
-Source0:	ftp://ftp.debian.org:21/debian/pool/main/w/whois/whois_5.0.25.tar.xz
+URL:		https://github.com/rfc1036/whois
+Source0:	https://github.com/rfc1036/whois/archive/%{name}_%{version}.tar.gz
 BuildRequires:	gettext
 BuildRequires:	libidn-devel
 %rename	fwhois
@@ -51,4 +51,3 @@ mv %{buildroot}%{_mandir}/man1/mkpasswd.1 %{buildroot}%{_mandir}/man1/whois-mkpa
 %{_mandir}/man1/whois.1*
 %{_mandir}/man1/whois-mkpasswd.1*
 %{_mandir}/man5/whois.conf.5*
-
