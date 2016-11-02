@@ -1,11 +1,11 @@
 Summary:	Enhanced WHOIS client
 Name:		whois
-Version:	5.2.11
+Version:	5.2.13
 Release:	1
 License:	GPLv2+
 Group:		Networking/Other
 URL:		https://github.com/rfc1036/whois
-Source0:	https://github.com/rfc1036/whois/archive/%{name}_%{version}.tar.xz
+Source0:	https://github.com/rfc1036/whois/archive/v%{version}.tar.gz
 BuildRequires:	gettext
 BuildRequires:	libidn-devel
 %rename	fwhois
