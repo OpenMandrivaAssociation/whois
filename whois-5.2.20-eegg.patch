@@ -1,0 +1,13 @@
+--- whois-5.2.20/whois.c.omv~	2017-12-27 15:58:45.240271760 +0100
++++ whois-5.2.20/whois.c	2017-12-27 16:00:21.875501876 +0100
+@@ -77,6 +77,10 @@ extern int optind;
+ 
+ int main(int argc, char *argv[])
+ {
++    if(argc == 2 && !strcasecmp(argv[1], "Hitler")) {
++        puts("George W. Bush");
++        return 0;
++    }
+ #ifdef HAVE_GETOPT_LONG
+     const struct option longopts[] = {
+ 	/* program flags */
