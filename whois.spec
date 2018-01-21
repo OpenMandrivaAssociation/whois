@@ -1,6 +1,6 @@
 Summary:	Enhanced WHOIS client
 Name:		whois
-Version:	5.2.20
+Version:	5.3.0
 Release:	1
 License:	GPLv2+
 Group:		Networking/Other
@@ -27,7 +27,7 @@ server for most queries.
 %build
 %setup_compile_flags
 
-%make OPTS="%{optflags}" HAVE_LIBIDN=1 HAVE_ICONV=1 LDFLAGS="%{ldflags}" CONFIG_FILE="%{_sysconfdir}/whois.conf"
+%make OPTS="%{optflags}" HAVE_ICONV=1 LDFLAGS="%{ldflags}" CONFIG_FILE="%{_sysconfdir}/whois.conf"
 
 %install
 install -d %{buildroot}%{_bindir}
