@@ -1,7 +1,7 @@
 Summary:	Enhanced WHOIS client
 Name:		whois
 Version:	5.3.2
-Release:	1
+Release:	2
 License:	GPLv2+
 Group:		Networking/Other
 URL:		https://github.com/rfc1036/whois
