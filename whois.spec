@@ -1,14 +1,15 @@
 Summary:	Enhanced WHOIS client
 Name:		whois
-Version:	5.4.0
+Version:	5.4.1
 Release:	1
 License:	GPLv2+
 Group:		Networking/Other
 URL:		https://github.com/rfc1036/whois
-Source0:	https://github.com/rfc1036/whois/archive/v%{version}.tar.gz
+Source0:	https://github.com/rfc1036/whois/archive/%{name}-%{version}.tar.gz
 Patch0:		whois-5.2.20-eegg.patch
 BuildRequires:	gettext
-BuildRequires:	libidn-devel
+BuildRequires:	pkgconfig(libidn2)
+BuildRequires:	pkgconfig(libxcrypt)
 %rename	fwhois
 
 %description
@@ -21,21 +22,19 @@ It is intelligent and can automatically select the appropriate whois
 server for most queries.
 
 %prep
-%setup -q
-%apply_patches
+%autosetup -p1
 
 %build
 %setup_compile_flags
-
-%make OPTS="%{optflags}" HAVE_ICONV=1 LDFLAGS="%{ldflags}" CONFIG_FILE="%{_sysconfdir}/whois.conf"
+%make_build OPTS="%{optflags}" HAVE_LIBIDN=1 HAVE_ICONV=1 LDFLAGS="%{ldflags}" CONFIG_FILE="%{_sysconfdir}/whois.conf"
 
 %install
 install -d %{buildroot}%{_bindir}
 install -d %{buildroot}%{_sysconfdir}
 install -d %{buildroot}%{_mandir}/man1
 
-%makeinstall BASEDIR=%{buildroot} prefix=%{_prefix}/ mandir=%{_mandir}
-%makeinstall BASEDIR=%{buildroot} prefix=%{_prefix}/ mandir=%{_mandir} -C po
+%make_install BASEDIR=%{buildroot} prefix=%{_prefix}/ mandir=%{_mandir}
+%make_install BASEDIR=%{buildroot} prefix=%{_prefix}/ mandir=%{_mandir} -C po
 
 install -m0644 whois.conf %{buildroot}%{_sysconfdir}
 
