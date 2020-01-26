@@ -1,6 +1,6 @@
 Summary:	Enhanced WHOIS client
 Name:		whois
-Version:	5.5.4
+Version:	5.5.5
 Release:	1
 License:	GPLv2+
 Group:		Networking/Other
