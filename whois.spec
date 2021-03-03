@@ -1,11 +1,11 @@
 Summary:	Enhanced WHOIS client
 Name:		whois
-Version:	5.5.7
+Version:	5.5.8
 Release:	1
 License:	GPLv2+
 Group:		Networking/Other
 URL:		https://github.com/rfc1036/whois
-Source0:	https://github.com/rfc1036/whois/archive/v%{version}.tar.gz
+Source0:	https://github.com/rfc1036/whois/archive/%{name}-%{version}.tar.gz
 Patch0:		whois-5.2.20-eegg.patch
 BuildRequires:	gettext
 BuildRequires:	pkgconfig(libidn2)
@@ -25,7 +25,7 @@ server for most queries.
 %autosetup -p1
 
 %build
-%setup_compile_flags
+%set_build_flags
 %make_build OPTS="%{optflags}" HAVE_ICONV=1 LDFLAGS="%{ldflags}" CONFIG_FILE="%{_sysconfdir}/whois.conf"
 
 %install
