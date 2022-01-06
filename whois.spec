@@ -1,6 +1,6 @@
 Summary:	Enhanced WHOIS client
 Name:		whois
-Version:	5.5.10
+Version:	5.5.11
 Release:	1
 License:	GPLv2+
 Group:		Networking/Other
@@ -26,7 +26,7 @@ server for most queries.
 
 %build
 %set_build_flags
-%make_build OPTS="%{optflags}" HAVE_ICONV=1 LDFLAGS="%{ldflags}" CONFIG_FILE="%{_sysconfdir}/whois.conf"
+%make_build OPTS="%{optflags} -Oz" HAVE_ICONV=1 LDFLAGS="%{build_ldflags}" CONFIG_FILE="%{_sysconfdir}/whois.conf"
 
 %install
 install -d %{buildroot}%{_bindir}
@@ -49,6 +49,6 @@ mv %{buildroot}%{_mandir}/man1/mkpasswd.1 %{buildroot}%{_mandir}/man1/whois-mkpa
 %config(noreplace) %{_sysconfdir}/whois.conf
 %{_bindir}/whois
 %{_bindir}/whois-mkpasswd
-%{_mandir}/man1/whois.1*
-%{_mandir}/man1/whois-mkpasswd.1*
-%{_mandir}/man5/whois.conf.5*
+%doc %{_mandir}/man1/whois.1*
+%doc %{_mandir}/man1/whois-mkpasswd.1*
+%doc %{_mandir}/man5/whois.conf.5*
