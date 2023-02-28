@@ -1,6 +1,6 @@
 Summary:	Enhanced WHOIS client
 Name:		whois
-Version:	5.5.15
+Version:	5.5.16
 Release:	1
 License:	GPLv2+
 Group:		Networking/Other
@@ -10,6 +10,7 @@ Patch0:		whois-5.2.20-eegg.patch
 BuildRequires:	gettext
 BuildRequires:	pkgconfig(libidn2)
 BuildRequires:	pkgconfig(libxcrypt)
+BuildRequires:	pkgconfig(bash-completion)
 %rename	fwhois
 
 %description
@@ -49,6 +50,8 @@ mv %{buildroot}%{_mandir}/man1/mkpasswd.1 %{buildroot}%{_mandir}/man1/whois-mkpa
 %config(noreplace) %{_sysconfdir}/whois.conf
 %{_bindir}/whois
 %{_bindir}/whois-mkpasswd
+%{_datadir}/bash-completion/completions/mkpasswd
+%{_datadir}/bash-completion/completions/whois
 %doc %{_mandir}/man1/whois.1*
 %doc %{_mandir}/man1/whois-mkpasswd.1*
 %doc %{_mandir}/man5/whois.conf.5*
