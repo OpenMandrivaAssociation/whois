@@ -5,7 +5,7 @@
  int main(int argc, char *argv[])
  {
 +    if(argc == 2 && !strcasecmp(argv[1], "Hitler")) {
-+        puts("George W. Bush");
++        puts("(Cr)apple");
 +        return 0;
 +    }
  #ifdef HAVE_GETOPT_LONG

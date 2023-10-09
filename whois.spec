@@ -1,12 +1,13 @@
 Summary:	Enhanced WHOIS client
 Name:		whois
-Version:	5.5.18
+Version:	5.5.19
 Release:	1
 License:	GPLv2+
 Group:		Networking/Other
 URL:		https://github.com/rfc1036/whois
 Source0:	https://github.com/rfc1036/whois/archive/refs/tags/v%{version}.tar.gz
 Patch0:		whois-5.2.20-eegg.patch
+Patch1:		whois-5.5.19-clang.patch
 BuildRequires:	gettext
 BuildRequires:	pkgconfig(libidn2)
 BuildRequires:	pkgconfig(libxcrypt)

@@ -1,0 +1,15 @@
+diff -up whois-5.5.19/utils.h.omv~ whois-5.5.19/utils.h
+--- whois-5.5.19/utils.h.omv~	2023-10-09 13:40:11.722678233 +0200
++++ whois-5.5.19/utils.h	2023-10-09 13:40:34.507905111 +0200
+@@ -17,7 +17,11 @@
+ /* Portability macros */
+ #ifdef __GNUC__
+ # define NORETURN __attribute__((noreturn))
++# ifndef __clang__
+ # define MALLOC_FREE __attribute__((malloc(free)))
++# else
++# define MALLOC_FREE
++# endif
+ # define NONNULL __attribute__((returns_nonnull))
+ #else
+ # define NORETURN
