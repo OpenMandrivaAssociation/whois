@@ -7,6 +7,7 @@ Group:		Networking/Other
 URL:		https://github.com/rfc1036/whois
 Source0:	https://github.com/rfc1036/whois/archive/refs/tags/v%{version}.tar.gz
 Patch0:		whois-5.2.20-eegg.patch
+BuildRequires:	make
 BuildRequires:	gettext
 BuildRequires:	pkgconfig(libidn2)
 BuildRequires:	pkgconfig(libxcrypt)
